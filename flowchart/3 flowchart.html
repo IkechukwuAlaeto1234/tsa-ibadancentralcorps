@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flowchart 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe Script', cursive; /* Example handwritten font */
+            margin: 40px;
+            line-height: 1.6;
+            display: flex; /* Center the flowchart on the page */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+            background-color: #f4f4f4; /* Optional background color */
+        }
+        .mermaid {
+            width: 80%; /* Adjust as needed */
+            max-width: 800px; /* Set a maximum width if desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+        flowchart TD
+            A[Start] --> B{Is I = 1?}
+            B -->|Yes| C[Change I to 2]
+            B -->|No| D{Is I = 2?}
+            D -->|Yes| E[Change I to 1]
+            D -->|No| F[Print error message]
+            C --> G[End]
+            E --> G
+            F --> G
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: false
+            },
+            fontFamily: 'Segoe Script, cursive' /* Specify the desired font here */
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Salvation Army Ibadan Central Corps - Serving the Ibadan community through faith, hope, and charity. Join us for worship, outreach programs, and community service.">
+    <meta name="keywords" content="Salvation Army, Ibadan church, Christian worship, community service, charity, outreach, social services, Ibadan Central Corps">
+    <meta name="author" content="The Salvation Army, Ibadan Central Corps">
+    <meta property="og:title" content="The Salvation Army | Ibadan Central Corps">
+    <meta property="og:description" content="Explore The Salvation Army in Ibadan - a church dedicated to worship, community service, and social outreach programs.">
+    <meta property="og:image" content="images/salvation-army-building.jpg">
+    <meta property="og:url" content="https://salvationarmyibadan.org">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Events | The Salvation Army | Ibadan Central Corps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/tsa-ibcc-church-logo.jpeg">
+    
+    <style>
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(145deg, #c8102e, #a00e26);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(200, 16, 46, 0.4);
+            background: linear-gradient(145deg, #a00e26, #c8102e);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+        }
+
+        .back-to-top svg {
+            width: 22px;
+            height: 22px;
+            stroke: white;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-top:hover svg {
+            transform: translateY(-2px);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            }
+            50% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.5), 0 0 0 8px rgba(200, 16, 46, 0.1);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            }
+        }
+
+        .back-to-top.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+            }
+            
+            .back-to-top svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="images/The-Salvation-Army-Logo-1865.png" alt="The Salvation Army Logo">
+                </a>
+                <div class="logo-text">
+                    <a href="../index.html">
+                        The Salvation Army
+                        <span>Ibadan Central Corps</span>
+                    </a> 
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ministries">Ministries</a></li>
+                    <li><a href="#events" class="active">Events</a></li>
+                    <li><a href="#outreach">Outreach</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle" title="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30">
+                    <rect x="10" y="20" width="80" height="8" rx="4" fill="currentColor"/>
+                    <rect x="10" y="46" width="80" height="8" rx="4" fill="currentColor"/>
+                    <rect x="10" y="72" width="80" height="8" rx="4" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #c8102e 0%, #a00d26 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(200, 16, 46, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Event Page Styles */
+        .event-page {
+            display: none;
+            padding: 40px 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .event-page.active {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .event-header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c8102e, #ff6b6b, #c8102e);
+        }
+
+        .event-title {
+            font-size: 2.5rem;
+            color: #c8102e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+        }
+
+        .event-meta i {
+            color: #c8102e;
+            width: 20px;
+        }
+
+        .event-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .event-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-card h3 {
+            color: #c8102e;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+
+        .contact-info i {
+            color: #c8102e;
+            width: 20px;
+        }
+
+        .event-highlights {
+            list-style: none;
+        }
+
+        .event-highlights li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .event-highlights li:last-child {
+            border-bottom: none;
+        }
+
+        .event-highlights i {
+            color: #c8102e;
+            width: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #c8102e, #a00d26);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 16, 46, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d, #5a6268);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(108, 117, 125, 0.4);
+        }
+
+        /* Gallery Styles */
+        .event-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        /* Event Navigation */
+        .event-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #c8102e;
+            color: #c8102e;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #c8102e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Registration Form */
+        .registration-form {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c8102e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .event-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-title {
+                font-size: 2rem;
+            }
+            
+            .event-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .event-navigation {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Special Event Styling */
+        .featured-banner {
+            background: linear-gradient(135deg, #c8102e, #ff6b6b);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cross"></i>
+                    <div class="logo-text">
+                        <h1>The Salvation Army</h1>
+                        <p>Ibadan Central Corps</p>
+                    </div>
+                </div>
+                <nav class="nav-links">
+                    <a href="#" onclick="showHomePage()">Home</a>
+                    <a href="#" onclick="showEventsOverview()">All Events</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Event Navigation -->
+        <div class="event-navigation">
+            <button class="nav-btn active" onclick="showEvent('corps-anniversary')">Corps Anniversary</button>
+            <button class="nav-btn" onclick="showEvent('youth-conference')">Youth Conference</button>
+            <button class="nav-btn" onclick="showEvent('community-outreach')">Community Outreach</button>
+            <button class="nav-btn" onclick="showEvent('prayer-vigil')">Prayer Vigil</button>
+            <button class="nav-btn" onclick="showEvent('womens-fellowship')">Women's Fellowship</button>
+        </div>
+
+        <!-- Corps Anniversary Celebration -->
+        <div id="corps-anniversary" class="event-page active">
+            <div class="event-header">
+                <div class="featured-banner">
+                    <i class="fas fa-star"></i> Featured Event - Don't Miss This Special Celebration!
+                </div>
+                <h1 class="event-title">Corps Anniversary Celebration</h1>
+                <div class="event-meta">
+                    <span><i class="far fa-calendar"></i> June 15, 2025</span>
+                    <span><i class="far fa-clock"></i> 10:00 AM - 2:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Main Sanctuary</span>
+                    <span><i class="fas fa-users"></i> All Ages Welcome</span>
+                </div>
+                <p class="event-description">
+                    Join us for a momentous celebration as we commemorate another year of God's faithfulness to The Salvation Army, Ibadan Central Corps. This special service will be filled with praise, worship, testimonies, and a powerful message from our guest speaker.
+                </p>
+            </div>
+
+            <div class="countdown-timer" id="anniversary-countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">--</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">--</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">--</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">--</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+
+            <div class="event-content">
+                <div class="main-content">
+                    <h2>About This Event</h2>
+                    <p>Our Corps Anniversary is more than just a celebration—it's a testament to God's unwavering love and the commitment of our community. This year marks another milestone in our journey of service, outreach, and spiritual growth.</p>
+                    
+                    <h3>Event Highlights</h3>
+                    <ul class="event-highlights">
+                        <li><i class="fas fa-music"></i> Special musical performances by the Corps Band</li>
+                        <li><i class="fas fa-microphone"></i> Inspiring testimonies from community members</li>
+                        <li><i class="fas fa-bible"></i> Powerful message from Guest Speaker Rev. Dr. Johnson</li>
+                        <li><i class="fas fa-gift"></i> Recognition of outstanding volunteers</li>
+                        <li><i class="fas fa-utensils"></i> Fellowship lunch following the service</li>
+                        <li><i class="fas fa-camera"></i> Photo opportunities and memory sharing</li>
+                    </ul>
+
+                    <div class="event-gallery">
+                        <div class="gallery-item">
+                            <img src="/api/placeholder/200/150" alt="Previous Anniversary Celebration">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/api/placeholder/200/150" alt="Corps Band Performance">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/api/placeholder/200/150" alt="Community Fellowship">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="/api/placeholder/200/150" alt="Anniversary Service">
+                        </div>
+                    </div>
+
+                    <div class="registration-form">
+                        <h3>RSVP for Fellowship Lunch</h3>
+                        <form id="anniversary-rsvp">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="attendees">Number of Attendees</label>
+                                <select id="attendees" name="attendees" required>
+                                    <option value="">Select...</option>
+                                    <option value="1">1 Person</option>
+                                    <option value="2">2 People</option>
+                                    <option value="3">3 People</option>
+                                    <option value="4">4 People</option>
+                                    <option value="5+">5+ People</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">
+                                <i class="fas fa-check"></i> Confirm Attendance
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <h3>Event Details</h3>
+                        <div class="contact-info">
+                            <span><i class="fas fa-calendar-alt"></i> June 15, 2025</span>
+                            <span><i class="fas fa-clock"></i> 10:00 AM - 2:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Main Sanctuary</span>
+                            <span><i class="fas fa-parking"></i> Free Parking Available</span>
+                            <span><i class="fas fa-wheelchair"></i> Wheelchair Accessible</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info">
+                            <span><i class="fas fa-phone"></i> +234 802 123 4567</span>
+                            <span><i class="fas fa-envelope"></i> events@salvationarmy-ibadan.org</span>
+                            <span><i class="fas fa-map"></i> 123 Ring Road, Ibadan</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>What to Expect</h3>
+                        <p>Dress code is Sunday best. The service will include worship, testimonies, and a special message. Lunch will be served from 12:30 PM.</p>
+                        <a href="#" class="btn">
+                            <i class="fas fa-share"></i> Share Event
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Youth Conference -->
+        <div id="youth-conference" class="event-page">
+            <div class="event-header">
+                <h1 class="event-title">Youth Conference 2025</h1>
+                <div class="event-meta">
+                    <span><i class="far fa-calendar"></i> May 22, 2025</span>
+                    <span><i class="far fa-clock"></i> 4:00 PM - 8:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Youth Hall</span>
+                    <span><i class="fas fa-users"></i> Ages 13-25</span>
+                </div>
+                <p class="event-description">
+                    An empowering gathering designed specifically for young people, focusing on spiritual growth, practical Christian living, and building meaningful relationships with Christ and each other.
+                </p>
+            </div>
+
+            <div class="event-content">
+                <div class="main-content">
+                    <h2>Ignite Your Faith</h2>
+                    <p>This year's Youth Conference theme is "Ignite Your Faith" - a call for young people to kindle their passion for Christ and let their light shine bright in today's world.</p>
+                    
+                    <h3>Conference Schedule</h3>
+                    <ul class="event-highlights">
+                        <li><i class="fas fa-clock"></i> 4:00 PM - Registration & Welcome</li>
+                        <li><i class="fas fa-music"></i> 4:30 PM - Praise & Worship Session</li>
+                        <li><i class="fas fa-microphone"></i> 5:00 PM - Opening Message: "Called for Purpose"</li>
+                        <li><i class="fas fa-users"></i> 5:45 PM - Breakout Sessions</li>
+                        <li><i class="fas fa-utensils"></i> 6:30 PM - Dinner & Fellowship</li>
+                        <li><i class="fas fa-pray"></i> 7:30 PM - Prayer & Dedication Service</li>
+                    </ul>
+
+                    <h3>Breakout Sessions</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #c8102e;">
+                            <h4>Faith in Action</h4>
+                            <p>Practical ways to live out your faith in school, work, and daily life.</p>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #c8102e;">
+                            <h4>Relationships & Dating</h4>
+                            <p>Biblical principles for healthy relationships and dating with purpose.</p>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #c8102e;">
+                            <h4>Career & Calling</h4>
+                            <p>Discovering God's plan for your future and career path.</p>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #c8102e;">
+                            <h4>Social Media & Faith</h4>
+                            <p>Using technology and social platforms to glorify God and impact others.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <h3>Registration Required</h3>
+                        <p>This event requires advance registration. Limited spots available!</p>
+                        <div class="contact-info">
+                            <span><i class="fas fa-dollar-sign"></i> Free Entry</span>
+                            <span><i class="fas fa-utensils"></i> Dinner Included</span>
+                            <span><i class="fas fa-gift"></i> Take-home Resources</span>
+                        </div>
+                        <a href="#" class="btn">
+                            <i class="fas fa-user-plus"></i> Register Now
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Guest Speakers</h3>
+                        <div style="margin-bottom: 15px;">
+                            <strong>Pastor Mike Adeniran</strong><br>
+                            <small>Youth Pastor, Lagos Central</small>
+                        </div>
+                        <div>
+                            <strong>Sister Grace Okafor</strong><br>
+                            <small>Young Adult Coordinator</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Outreach -->
+        <div id="community-outreach" class="event-page">
+            <div class="event-header">
+                <h1 class="event-title">Community Outreach Program</h1>
+                <div class="event-meta">
+                    <span><i class="far fa-calendar"></i> May 29, 2025</span>
+                    <span><i class="far fa-clock"></i> 9:00 AM - 1:00 PM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Agodi Garden</span>
+                    <span><i class="fas fa-heart"></i> Service Project</span>
+                </div>
+                <p class="event-description">
+                    Join us as we serve our community through food distribution, health awareness programs, and sharing God's love with those in need. Be part of making a difference in our neighborhood.
+                </p>
+            </div>
+
+            <div class="event-content">
+                <div class="main-content">
+                    <h2>Serving with Love</h2>
+                    <p>Our Community Outreach Program is an opportunity to put our faith into action by serving those in our community who need support, care, and encouragement.</p>
+                    
+                    <h3>Outreach Activities</h3>
+                    <ul class="event-highlights">
+                        <li><i class="fas fa-box"></i> Food package distribution to families in need</li>
+                        <li><i class="fas fa-stethoscope"></i> Free health screening and blood pressure checks</li>
+                        <li><i class="fas fa-eye"></i> Basic vision testing and reading glasses distribution</li>
+                        <li><i class="fas fa-cut"></i> Free haircuts and grooming services</li>
+                        <li><i class="fas fa-book"></i> Educational materials and school supplies for children</li>
+                        <li><i class="fas fa-pray"></i> Prayer ministry and spiritual counseling</li>
+                    </ul>
+
+                    <h3>How You Can Help</h3>
+                    <div style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                        <h4>Volunteer Opportunities:</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 8px 0;"><i class="fas fa-hand-holding-heart" style="color: #c8102e; margin-right: 10px;"></i> Food distribution team</li>
+                            <li style="padding: 8px 0;"><i class="fas fa-clipboard-list" style="color: #c8102e; margin-right: 10px;"></i> Registration and check-in</li>
+                            <li style="padding: 8px 0;"><i class="fas fa-child" style="color: #c8102e; margin-right: 10px;"></i> Children's activity coordination</li>
+                            <li style="padding: 8px 0;"><i class="fas fa-truck" style="color: #c8102e; margin-right: 10px;"></i> Setup and logistics</li>
+                            <li style="padding: 8px 0;"><i class="fas fa-camera" style="color: #c8102e; margin-right: 10px;"></i> Photography and documentation</li>
+                        </ul>
+                    </div>
+
+                    <h3>Donation Needs</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-apple-alt" style="font-size: 2rem; color: #c8102e; margin-bottom: 10px;"></i>
+                            <h4>Non-perishable Food</h4>
+                            <p>Rice, beans, canned goods, pasta</p>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-tshirt" style="font-size: 2rem; color: #c8102e; margin-bottom: 10px;"></i>
+                            <h4>Clothing</h4>
+                            <p>Clean, gently used clothing for all ages</p>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-graduation-cap" style="font-size: 2rem; color: #c8102e; margin-bottom: 10px;"></i>
+                            <h4>School Supplies</h4>
+                            <p>Notebooks, pens, pencils, backpacks</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <h3>Volunteer Registration</h3>
+                        <p>We need volunteers to make this outreach successful. Sign up to serve!</p>
+                        <div class="contact-info">
+                            <span><i class="fas fa-clock"></i> 8:00 AM Volunteer Check-in</span>
+                            <span><i class="fas fa-tshirt"></i> T-shirt Provided</span>
+                            <span><i class="fas fa-utensils"></i> Lunch for Volunteers</span>
+                        </div>
+                        <a href="#" class="btn">
+                            <i class="fas fa-hands-helping"></i> Volunteer Now
+                        </a>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Impact Statistics</h3>
+                        <div class="contact-info">

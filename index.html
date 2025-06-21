@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Salvation Army Ibadan Central Corps - Serving the Ibadan community through faith, hope, and charity. Join us for worship, outreach programs, and community service.">
+    <meta name="keywords" content="Salvation Army, Ibadan church, Christian worship, community service, charity, outreach, social services, Ibadan Central Corps">
+    <meta name="author" content="The Salvation Army, Ibadan Central Corps">
+    <meta property="og:title" content="The Salvation Army | Ibadan Central Corps">
+    <meta property="og:description" content="Explore The Salvation Army in Ibadan - a church dedicated to worship, community service, and social outreach programs.">
+    <meta property="og:image" content="images/salvation-army-building.jpg">
+    <meta property="og:url" content="https://salvationarmyibadan.org">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>The Salvation Army | Ibadan Central Corps - Faith & Service in Ibadan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/tsa-ibcc-church-logo.jpeg">
+    
+    <style>
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(145deg, #c8102e, #a00e26);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(200, 16, 46, 0.4);
+            background: linear-gradient(145deg, #a00e26, #c8102e);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+        }
+
+        .back-to-top svg {
+            width: 22px;
+            height: 22px;
+            stroke: white;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-top:hover svg {
+            transform: translateY(-2px);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            }
+            50% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.5), 0 0 0 8px rgba(200, 16, 46, 0.1);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            }
+        }
+
+        .back-to-top.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+            }
+            
+            .back-to-top svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* Contact Form Enhanced Styles */
+        .char-counter {
+            font-size: 0.875rem;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+            text-align: right;
+            font-style: italic;
+        }
+
+        .char-counter-success {
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .char-counter-warning {
+            color: #f59e0b;
+        }
+
+        .char-counter-error {
+            color: #ef4444;
+            font-weight: 500;
+        }
+
+        .form-control.success {
+            border-color: #10b981 !important;
+            box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25) !important;
+        }
+
+        .form-control.error {
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.25) !important;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .error-message {
+            margin-top: 4px;
+        }
+
+        /* Map Section Enhanced Styles */
+        .contact-map {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .contact-map h3 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary, #005DAA);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .contact-map h3:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: var(--primary, #ED1B24);
+            bottom: -10px;
+            left: 20%;
+            transform: translateX(-20%);
+        }
+
+        .contact-map p {
+            font-size: 1.2rem;
+            color: var(--gray, #6c757d);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .map {
+            background: var(--white, #ffffff);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-gray, #e9ecef);
+        }
+
+        .map:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            filter: grayscale(0.2) contrast(1.1);
+        }
+
+        .map iframe:hover {
+            filter: grayscale(0) contrast(1.2);
+            transform: scale(1.01);
+        }
+
+        /* Loading states */
+        .loading-page,
+        .success-page,
+        .error-page {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .facebook-loader {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            background: #3498db;
+            border-radius: 50%;
+            animation: bounce 1.4s ease-in-out infinite both;
+        }
+
+        .progress-dot:nth-child(1) { animation-delay: -0.32s; }
+        .progress-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .back-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #2980b9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .contact-map {
+                padding: 0 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .contact-map h3 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-map p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .map {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .map iframe {
+                height: 350px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-map h3 {
+                font-size: 2rem;
+            }
+
+            .contact-map p {
+                font-size: 1rem;
+            }
+
+            .map {
+                padding: 1rem;
+            }
+
+            .map iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Loader -->
+    <div id="siteLoaderModal" class="site-loader-modal">
+        <div class="loader-content">
+            <div class="spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loader-text">Loading...</p>
+            <div class="loader-progress">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html" aria-label="The Salvation Army Ibadan Central Corps Home">
+                        <img src="images/The-Salvation-Army-Logo-1865.png" alt="The Salvation Army Logo">
+                    </a>
+                    <div class="logo-text">
+                        <a href="index.html">
+                            The Salvation Army
+                            <span>Ibadan Central Corps</span>
+                        </a> 
+                    </div>
+                </div>
+              <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#outreach">Outreach</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                                <button class="mobile-nav-toggle" title="Menu" aria-label="Toggle mobile navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30">
+                        <rect x="10" y="20" width="80" height="8" rx="4" fill="currentColor"/>
+                        <rect x="10" y="46" width="80" height="8" rx="4" fill="currentColor"/>
+                        <rect x="10" y="72" width="80" height="8" rx="4" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>WELCOME TO <br> <span style="color: var(--accent-dark);">THE SALVATION ARMY, </span> <br> <span style="color: var(--light-gray); text-shadow: var(--shadow);">IBADAN CENTRAL CORPS</span></h1>
+            <p>Transforming Lives, Building Community, and <br> Serving Others in Christ's Name in Ibadan</p>
+            <div class="hero-btns">
+                <a href="#about" class="btn" style="font-family: 'Satoshi', sans-serif;">Learn More</a>
+                <a href="#contact" class="btn">Join Us</a>
+            </div>
+        </div>
+        <div class="service-times">
+            <div class="container">
+                <div class="service-times-content">
+                    <div class="service-time-item">
+                        <h4>Holiness Meeting</h4>
+                        <p>10:00 AM</p>
+                    </div>
+                    <div class="service-time-item">
+                        <h4>Bible Study</h4>
+                        <p>9:00 AM</p>
+                    </div>
+                    <div class="service-time-item">
+                        <h4>Midweek Service</h4>
+                        <p>Wednesday 6:00 PM</p>
+                        <p>Thursday 10:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>ABOUT OUR CHURCH</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="images/salvation-army-building.jpeg" alt="The Salvation Army Ibadan Central Corps Building">
+                </div>
+                <div class="about-text">
+                    <h3>The Salvation Army 
+                        <br>Ibadan Central Corps</h3>
+                    <p>The Salvation Army is an international Christian church and charitable organization. Our message is based on the Bible; our ministry is motivated by love for God and the needs of humanity.</p>
+                    <p>Established in Ibadan in [year], the Ibadan Central Corps serves as a beacon of hope, faith, and service in our community, extending the love of Christ through various programs, worship services, and outreach initiatives.</p>
+                    
+                    <div class="about-call-to-action">
+                        <a href="/about/" class="btn">Read More About Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Ministries Section -->
+    <section id="ministries" class="section featured-ministries">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR MINISTRIES</h2>
+            </div>
+            <div class="ministries-grid">
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="/api/placeholder/400/300" alt="Worship Ministry">
+                    </div>
+                    <div class="ministry-content">
+                        <h4>Worship Ministry</h4>
+                        <p>Our worship ministry is dedicated to leading the congregation in praise and worship, creating an atmosphere where people can encounter God.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="/api/placeholder/400/300" alt="Youth Ministry">
+                    </div>
+                    <div class="ministry-content">
+                        <h4>Youth Ministry</h4>
+                        <p>Our youth ministry nurtures young people in their faith journey, providing opportunities for spiritual growth, fellowship, and service.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="/api/placeholder/400/300" alt="Women's Ministry">
+                    </div>
+                    <div class="ministry-content">
+                        <h4>Women's Ministry</h4>
+                        <p>Our women's ministry empowers and encourages women to grow in their faith, build community, and serve others.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="/api/placeholder/400/300" alt="Men's Fellowship">
+                    </div>
+                    <div class="ministry-content">
+                        <h4>Men's Fellowship</h4>
+                        <p>Our men's fellowship provides a platform for men to grow spiritually, build meaningful relationships, and impact their families and community.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="/api/placeholder/400/300" alt="Children's Ministry">
+                    </div>
+                    <div class="ministry-content">
+                        <h4>Children's Ministry</h4>
+                        <p>Our children's ministry helps children develop a strong foundation in faith through age-appropriate teaching and activities.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="ministry-card">
+                    <div class="ministry-img">
+                        <img src="/api/placeholder/400/300" alt="Music Ministry">
+                    </div>
+                    <div class="ministry-content">
+                        <h4>Music Ministry</h4>
+                        <p>Our music ministry enhances worship experiences through instrumental and vocal performances, including our brass band and choir.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>UPCOMING EVENTS</h2>
+            </div>
+            <div class="events-container">
+                <div class="featured-event">
+                    <div class="featured-event-img">
+                        <img src="/api/placeholder/600/400" alt="Corps Anniversary Celebration">
+                    </div>
+                    <div class="featured-event-content">
+                        <span class="featured-event-date">June 15, 2025</span>
+                        <h3>Corps Anniversary Celebration</h3>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 10:00 AM - 2:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Main Sanctuary</span>
+                        </div>
+                        <p>Join us for a special service celebrating another year of God's faithfulness to The Salvation Army, Ibadan Central Corps. The event will feature special music, testimonies, and a message from a guest speaker.</p>
+                        <a href="#" class="btn">Event Details</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-date-day">22</span>
+                        <span class="event-date-month">May</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>Youth Conference</h4>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 4:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Youth Hall</span>
+                        </div>
+                        <p>A special gathering for youth focused on spiritual growth and practical Christian living.</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-date-day">29</span>
+                        <span class="event-date-month">May</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>Community Outreach</h4>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 9:00 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Agodi Garden</span>
+                        </div>
+                        <p>Join us as we serve our community through food distribution and health awareness programs.</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-date-day">05</span>
+                        <span class="event-date-month">Jun</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>Prayer Vigil</h4>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 10:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Main Sanctuary</span>
+                        </div>
+                        <p>A night of intense prayer and intercession for our church, community, and nation.</p>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="event-date-day">12</span>
+                        <span class="event-date-month">Jun</span>
+                    </div>
+                    <div class="event-content">
+                        <h4>Women's Fellowship</h4>
+                        <div class="event-meta">
+                            <span><i class="far fa-clock"></i> 2:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Fellowship Hall</span>
+                        </div>
+                        <p>A special meeting for women featuring guest speakers, worship, and fellowship.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all-events">
+                <a href="#" class="btn">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>TESTIMONIALS</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-slides">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/200/200" alt="Testimonial from Folake Adeyemi">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"The Salvation Army has been a spiritual home for my family. The community here is so loving and supportive. I've grown so much in my faith since joining this church."</p>
+                            <h4 class="testimonial-name">Folake Adeyemi</h4>
+                            <p class="testimonial-position">Church Member for 5 years</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/200/200" alt="Testimonial from Emmanuel Olatunji">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"The outreach programs at The Salvation Army have truly transformed lives in our community. I've witnessed firsthand how they've helped families in need with food, clothing, and spiritual support."</p>
+                            <h4 class="testimonial-name">Emmanuel Olatunji</h4>
+                            <p class="testimonial-position">Community Partner</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/200/200" alt="Testimonial from Tolu Akinwande">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"I found hope and purpose through the youth ministry at The Salvation Army. The mentorship I received helped me navigate difficult times and strengthen my relationship with God."</p>
+                            <h4 class="testimonial-name">Tolu Akinwande</h4>
+                            <p class="testimonial-position">Youth Member</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-nav-btn active" data-slide="0" aria-label="View testimonial 1"></button>
+                    <button class="testimonial-nav-btn" data-slide="1" aria-label="View testimonial 2"></button>
+                    <button class="testimonial-nav-btn" data-slide="2" aria-label="View testimonial 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outreach Section -->
+    <section id="outreach" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>COMMUNITY OUTREACH</h2>
+            </div>
+            <div class="outreach-programs">
+                <div class="outreach-card">
+                    <div class="outreach-img">
+                        <img src="images/food-bank-donation.jpg" alt="Food Bank donation program">
+                    </div>
+                    <div class="outreach-content">
+                        <h4>Food Bank</h4>
+                        <p>Our food bank provides essential groceries to families in need throughout Ibadan, helping to combat hunger and food insecurity.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="outreach-card">
+                    <div class="outreach-img">
+                        <img src="images/education-support.jpg" alt="Education support program">
+                    </div>
+                    <div class="outreach-content">
+                        <h4>Education Support</h4>
+                        <p>We provide scholarships, school supplies, and tutoring programs to support the educational needs of underprivileged children.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="outreach-card">
+                    <div class="outreach-img">
+                        <img src="images/health-service.jpg" alt="Health services program">
+                    </div>
+                    <div class="outreach-content">
+                        <h4>Health Services</h4>
+                        <p>Our health programs offer medical check-ups, health education, and referrals to community members who lack access to healthcare.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section id="donate" class="section-donate"></section>
+        <div class="container">
+            <h2>SUPPORT OUR MISSION</h2>
+            <p>Your generous contributions enable us to continue our work in spreading the gospel and serving the community. Together, we can make a difference in Ibadan and beyond.</p>
+            <a href="#" class="btn btn-accent">Donate Now</a>
+            <div class="donate-options">
+                <a href="#" class="btn">Volunteer</a>
+                <a href="#" class="btn">In-Kind Donations</a>
+                <a href="#" class="btn">Planned Giving</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR GALLERY</h2>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="images/people worshipping in sanctuary.jpeg" alt="Sunday Worship Service">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/youth-conference.jpeg" alt="Youth Conference">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/community-outreach.jpeg" alt="Community Outreach">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/salvation-army-brass-band.jpg" alt="Salvation Army Brass Band">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/christmas-charity-event.jpg" alt="Christmas Charity Event">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/salvation-army-young-people-sunday-school.jpg" alt="Children's Sunday School">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/womens-ministries-.jpg" alt="Women Ministries">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/emergency-relief-efforts.webp" alt="Emergency Relief Efforts">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                
+    <section id="contact" class="section">
+<div class="container">
+    <!-- Contact Form -->
+    <div class="contact-form" id="contactFormContainer">
+        <h2>Contact Us</h2>
+        <div id="alertContainer"></div>
+        <form id="contactForm" action="https://formspree.io/f/mvgrqrpz" method="POST">
+            <!-- Add these hidden fields -->
+    <input type="hidden" name="_redirect" value="false">
+    <input type="hidden" name="_autoresponse" value="false">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" name="Name" required>
+                <div class="field-hint">Please enter your full name</div>
+                <div class="char-counter" id="nameCounter"></div>
+                <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" name="Email" required>
+                <div class="field-hint">We'll use this to respond to your message</div>
+                <div class="char-counter" id="emailCounter"></div>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" id="subject" name="Subject" required>
+                <div class="field-hint">Brief description of your inquiry</div>
+                <div class="char-counter" id="subjectCounter"></div>
+                <div class="error-message" id="subjectError"></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="Message" required></textarea>
+                <div class="field-hint">Please provide details about your inquiry or message</div>
+                <div class="char-counter" id="messageCounter"></div>
+                <div class="error-message" id="messageError"></div>
+            </div>
+            <button type="submit" class="btn" id="submitBtn">
+                <span id="btnText">Send Message</span>
+            </button>
+        </form>
+    </div>
+
+    <!-- Loading Page -->
+    <div class="loading-page" id="loadingPage">
+        <div class="facebook-loader"></div>
+        <h2>Sending Your Message...</h2>
+        <p>Please wait while we process your request</p>
+        <div class="progress-dots">
+            <div class="progress-dot"></div>
+            <div class="progress-dot"></div>
+            <div class="progress-dot"></div>
+        </div>
+    </div>
+
+    <!-- Success Page -->
+    <div class="success-page" id="successPage">
+        <h2>Message Sent Successfully!</h2>
+        <p>Thank you for reaching out to Iyke Visuals. We've received your message and will get back to you within 24 hours.</p>
+        <button class="back-btn" onclick="showContactForm()">Go Back</button>
+    </div>
+
+    <!-- Error Page -->
+    <div class="error-page" id="errorPage">
+        <h2>Oops! Something Went Wrong</h2>
+        <p>We couldn't send your message at this time. Please check your information and try again, or contact us directly.</p>
+        <button class="back-btn" onclick="showContactForm()">Try Again</button>
+    </div>
+</div>
+
+<style>
+/* Character Counter Styles */
+.char-counter {
+    font-size: 0.875rem;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.char-counter-success {
+    color: #10b981; /* Green */
+    font-weight: 500;
+}
+
+.char-counter-warning {
+    color: #f59e0b; /* Orange/Yellow */
+}
+
+.char-counter-error {
+    color: #ef4444; /* Red */
+    font-weight: 500;
+}
+
+/* Enhanced input field styles */
+.form-control.success {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 0.2rem rgba(16, 185, 129, 0.25) !important;
+}
+
+.form-control.error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 0.2rem rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Success indicator for valid fields */
+.form-control.success::after {
+    content: '✓';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* Make form group relative for positioning */
+.form-group {
+    position: relative;
+}
+
+/* Style the character counter container */
+.char-counter {
+    text-align: right;
+    font-style: italic;
+}
+
+/* Add some spacing */
+.error-message {
+    margin-top: 4px;
+}
+</style>
+</section>
+
+<section id="contact" class="section">
+            <div class="contact-map">
+                <h3>Find Us Here</h3>
+                <p>We are located at Agodi Gate, Ibadan, Oyo State, Nigeria. Visit us during office hours or join us for Sunday worship services.</p>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15832.872292570818!2d3.9094943710766154!3d7.3980803549276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10398552d5f1b9d9%3A0xf7a0a9b641cc0e55!2sAgodi%20Gate%2C%20Ibadan!5e0!3m2!1sen!2sng!4v1652269846735!5m2!1sen!2sng" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+<style>
+           @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+
+        /* Global Styles */
+        :root {
+            --primary: #ED1B24;
+            --primary-dark: #C41017;
+            --secondary: #005DAA;
+            --secondary-dark: #00478D;
+            --accent: #FFD100;
+            --accent-dark: #DBB000;
+            --light: #f9f9f9;
+            --dark: #222222;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(237, 27, 36, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 93, 170, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-map {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .contact-map h3 {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .contact-map h3:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 20%;
+            transform: translateX(-20%);
+        }
+
+        .contact-map p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .map {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .map:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 12px;
+            transition: var(--transition);
+            filter: grayscale(0.2) contrast(1.1);
+        }
+
+        .map iframe:hover {
+            filter: grayscale(0) contrast(1.2);
+            transform: scale(1.01);
+        }
+
+        /* Floating elements for visual enhancement */
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+
+            .contact-map {
+                padding: 0 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .contact-map h3 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .contact-map p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .map {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .map iframe {
+                height: 350px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-map h3 {
+                font-size: 2rem;
+            }
+
+            .contact-map p {
+                font-size: 1rem;
+            }
+
+            .map {
+                padding: 1rem;
+            }
+
+            .map iframe {
+                height: 300px;
+            }
+        }
+
+        /* Enhanced visual effects */
+        .contact-map h3 {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .map {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Smooth entrance animation */
+        .contact-map {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        </style>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-widget footer-about">
+                    <h4>ABOUT US</h4>
+                    <p>The Salvation Army Ibadan Central Corps is committed to serving God and humanity through worship, community service, and various outreach programs.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" title="Connect with us on Facebook • Like our page for updates">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M9.5 3H12V0H9.5C7.6 0 6 1.6 6 3.5V5H4v3h2v8h3V8h2.5l.5-3H9V3.5c0-.3.2-.5.5-.5z"/>
+                            </svg>
+                        </a>
+
+                        <a href="#" class="social-icon" title="Follow us on X (Twitter) • Get real-time updates & news">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                            </svg>
+                        </a>
+
+                        <a href="#" class="social-icon" title="Follow us on Instagram • See our latest photos & stories">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </a>
+                        
+                        <a href="#" class="social-icon" title="Subscribe to our YouTube channel • Watch tutorials & educational content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-widget footer-links">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#outreach">Outreach</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget footer-contact">
+                    <h4>CONTACT INFO</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Salvation Road, Agodi Gate, Ibadan, Oyo State, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 807 8800 552</li>
+                        <li><i class="fas fa-envelope"></i> ikechukwualaeto@gmail.com</li>
+                        <li><i class="far fa-clock"></i> Sunday Worship: 9:00 AM</li>
+                        <li><i class="fas fa-clock"></i> Weekday Activities: Wednesday 6:00 PM | Thursday 10:00 AM</li>
+                
+                    </ul>
+                </div>
+                <div class="footer-widget footer-newsletter">
+                    <h4>NEWSLETTER</h4>
+                    <p>Subscribe to our newsletter to receive updates on events, announcements, and more.</p>
+                    <form action="https://formspree.io/f/xblykyry" method="POST">
+                        <input type="email" placeholder=" Enter your Email Address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+                        <div class="footer-bottom">
+                <p>&copy; 2025 The Salvation Army, Ibadan Central Corps. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="/privacy-policy/">Privacy Policy</a> |
+                    <a href="/cookie-policy/">Cookie Policy</a> |
+                    <a href="/terms-of-service/">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </a>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1: Sign Value Flowchart</title>
+    <style>
+        /* No need to import web fonts as we're using system fonts */
+        
+        body {
+            font-family: 'Segoe Script', cursive; /* Using Segoe Script as requested */
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        
+        .flowchart-container {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        canvas {
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-family: 'Segoe Script', cursive;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Assignment: Setting Sign Value Based on G and H</h1>
+        <p>Group Number: [Your Group Number]</p>
+        <p>Group Members: [List of Group Members]</p>
+        <p>Date: May 13, 2025</p>
+    </div>
+
+    <div class="flowchart-container">
+        <canvas id="flowchart" width="800" height="600"></canvas>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+
+    <script>
+        // Wait for the page to load
+        window.onload = function() {
+            const canvas = document.getElementById('flowchart');
+            const ctx = canvas.getContext('2d');
+            
+            // Set the font for the entire drawing
+            ctx.font = '16px "Segoe Script", cursive';
+            ctx.lineWidth = 2;
+            
+            // Define shapes for flowchart
+            const shapes = {
+                start: {x: 400, y: 60, text: "Start"},
+                condition1: {x: 400, y: 150, text: "Are G and H both negative?"},
+                setNegative: {x: 200, y: 250, text: "Set sign = -1"},
+                condition2: {x: 400, y: 250, text: "Do G and H have different signs?"},
+                setZero: {x: 200, y: 350, text: "Set sign = 0"},
+                condition3: {x: 400, y: 350, text: "Are G and H both positive?"},
+                setPositive: {x: 200, y: 450, text: "Set sign = 1"},
+                setEdgeCase: {x: 600, y: 450, text: "Edge case: one or both values are zero"},
+                end: {x: 400, y: 550, text: "End"}
+            };
+            
+            // Draw start/end ovals
+            function drawOval(x, y, text) {
+                ctx.beginPath();
+                ctx.ellipse(x, y, 70, 30, 0, 0, 2 * Math.PI);
+                ctx.stroke();
+                
+                // Center text both horizontally and vertically
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(text, x, y);
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'alphabetic';
+            }
+            
+            // Draw process rectangles
+            function drawRect(x, y, text) {
+                const width = 160;  // Slightly wider for better text balance
+                const height = 40;
+                ctx.beginPath();
+                ctx.rect(x - width/2, y - height/2, width, height);
+                ctx.stroke();
+                
+                // Center text both horizontally and vertically
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(text, x, y);
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'alphabetic';
+            }
+            
+            // Draw decision diamonds
+            function drawDiamond(x, y, text) {
+                const width = 160;
+                const height = 80;
+                ctx.beginPath();
+                ctx.moveTo(x, y - height/2);
+                ctx.lineTo(x + width/2, y);
+                ctx.lineTo(x, y + height/2);
+                ctx.lineTo(x - width/2, y);
+                ctx.closePath();
+                ctx.stroke();
+                
+            // Wrap text in diamond
+                const words = text.split(' ');
+                let line = '';
+                let yPos = y - 15;
+                const lineHeight = 18;
+                const maxWidth = width - 40; // Reduced width for better balance
+                
+                for (let i = 0; i < words.length; i++) {
+                    const testLine = line + words[i] + ' ';
+                    const metrics = ctx.measureText(testLine);
+                    
+                    if (metrics.width > maxWidth && i > 0) {
+                        ctx.fillText(line, x - ctx.measureText(line).width / 2, yPos);
+                        line = words[i] + ' ';
+                        yPos += lineHeight;
+                    } else {
+                        line = testLine;
+                    }
+                }
+                ctx.fillText(line, x - ctx.measureText(line).width / 2, yPos);
+            }
+            
+            // Draw connector lines with arrows
+            function drawArrow(fromX, fromY, toX, toY, text) {
+                // Draw line
+                ctx.beginPath();
+                ctx.moveTo(fromX, fromY);
+                ctx.lineTo(toX, toY);
+                ctx.stroke();
+                
+                // Draw arrowhead
+                const angle = Math.atan2(toY - fromY, toX - fromX);
+                ctx.beginPath();
+                ctx.moveTo(toX, toY);
+                ctx.lineTo(toX - 10 * Math.cos(angle - Math.PI / 6), toY - 10 * Math.sin(angle - Math.PI / 6));
+                ctx.lineTo(toX - 10 * Math.cos(angle + Math.PI / 6), toY - 10 * Math.sin(angle + Math.PI / 6));
+                ctx.closePath();
+                ctx.fill();
+                
+                // Add text if provided
+                if (text) {
+                    const midX = (fromX + toX) / 2;
+                    const midY = (fromY + toY) / 2 - 10;
+                    ctx.fillText(text, midX - ctx.measureText(text).width / 2, midY);
+                }
+            }
+            
+            // Draw all elements
+            drawOval(shapes.start.x, shapes.start.y, shapes.start.text);
+            drawDiamond(shapes.condition1.x, shapes.condition1.y, shapes.condition1.text);
+            drawRect(shapes.setNegative.x, shapes.setNegative.y, shapes.setNegative.text);
+            drawDiamond(shapes.condition2.x, shapes.condition2.y, shapes.condition2.text);
+            drawRect(shapes.setZero.x, shapes.setZero.y, shapes.setZero.text);
+            drawDiamond(shapes.condition3.x, shapes.condition3.y, shapes.condition3.text);
+            drawRect(shapes.setPositive.x, shapes.setPositive.y, shapes.setPositive.text);
+            drawRect(shapes.setEdgeCase.x, shapes.setEdgeCase.y, shapes.setEdgeCase.text);
+            drawOval(shapes.end.x, shapes.end.y, shapes.end.text);
+            
+            // Draw connecting arrows
+            drawArrow(shapes.start.x, shapes.start.y + 30, shapes.condition1.x, shapes.condition1.y - 40);
+            drawArrow(shapes.condition1.x - 80, shapes.condition1.y, shapes.setNegative.x, shapes.setNegative.y - 20, "Yes");
+            drawArrow(shapes.condition1.x, shapes.condition1.y + 40, shapes.condition2.x, shapes.condition2.y - 40, "No");
+            drawArrow(shapes.condition2.x - 80, shapes.condition2.y, shapes.setZero.x, shapes.setZero.y - 20, "Yes");
+            drawArrow(shapes.condition2.x, shapes.condition2.y + 40, shapes.condition3.x, shapes.condition3.y - 40, "No");
+            drawArrow(shapes.condition3.x - 80, shapes.condition3.y, shapes.setPositive.x, shapes.setPositive.y - 20, "Yes");
+            drawArrow(shapes.condition3.x + 80, shapes.condition3.y, shapes.setEdgeCase.x, shapes.setEdgeCase.y - 20, "No");
+            drawArrow(shapes.setNegative.x, shapes.setNegative.y + 20, shapes.setNegative.x, shapes.end.y);
+            drawArrow(shapes.setNegative.x, shapes.end.y, shapes.end.x - 70, shapes.end.y);
+            drawArrow(shapes.setZero.x, shapes.setZero.y + 20, shapes.setZero.x, shapes.end.y - 50);
+            drawArrow(shapes.setZero.x, shapes.end.y - 50, shapes.end.x - 50, shapes.end.y - 50);
+            drawArrow(shapes.end.x - 50, shapes.end.y - 50, shapes.end.x - 50, shapes.end.y - 30);
+            drawArrow(shapes.setPositive.x, shapes.setPositive.y + 20, shapes.setPositive.x, shapes.end.y - 70);
+            drawArrow(shapes.setPositive.x, shapes.end.y - 70, shapes.end.x - 30, shapes.end.y - 70);
+            drawArrow(shapes.end.x - 30, shapes.end.y - 70, shapes.end.x - 30, shapes.end.y - 30);
+            drawArrow(shapes.setEdgeCase.x, shapes.setEdgeCase.y + 20, shapes.setEdgeCase.x, shapes.end.y - 70);
+            drawArrow(shapes.setEdgeCase.x, shapes.end.y - 70, shapes.end.x + 30, shapes.end.y - 70);
+            drawArrow(shapes.end.x + 30, shapes.end.y - 70, shapes.end.x + 30, shapes.end.y - 30);
+        };
+    </script>
+</body>
+</html>

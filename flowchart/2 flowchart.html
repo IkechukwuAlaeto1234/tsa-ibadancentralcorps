@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistical Calculation Flowchart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Kalam&family=Patrick+Hand&display=swap');
+
+        body {
+            font-family: 'Architects Daughter', 'Patrick Hand', 'Kalam', cursive;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9; /* Keep the page background */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #fff; /* Set container background to white */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative; /* Needed for absolute positioning of the button */
+            overflow: hidden; /* To contain the Mermaid SVG */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-family: 'Kalam', 'Architects Daughter', cursive;
+            text-decoration: underline;
+            padding: 20px; /* Add some padding to the title if needed */
+        }
+
+        .mermaid {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            padding: 20px; /* Add some padding to the footer if needed */
+        }
+
+        .print-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: sans-serif;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .print-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding: 0;"> <h1>Statistical Calculation Algorithm Flowchart</h1>
+        <button class="print-button" onclick="printFlowchart()">Print to PDF (A4)</button>
+        <div class="mermaid">
+            flowchart TD
+                A[Start] --> B[Initialize variables:
+                sum = 0
+                squared_sum = 0
+                count = 0]
+
+                B --> C{More data
+                to process?}
+
+                C -->|Yes| D[Read next value X]
+                D --> E[sum = sum + X]
+                E --> F[squared_sum = squared_sum + X²]
+                F --> G[count = count + 1]
+                G --> C
+
+                C -->|No| H[Calculate mean:
+                mean = sum / count]
+
+                H --> I[Calculate variance:
+                variance = squared_sum/count - mean²]
+
+                I --> J[Calculate standard deviation:
+                std_dev = √variance]
+
+                J --> K[Output results:
+                mean, variance, std_dev]
+
+                K --> L[End]
+        </div>
+        <div class="footer">
+            Statistical calculation algorithm for computing mean, variance, and standard deviation
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                curve: 'basis',
+                htmlLabels: true,
+                padding: 15
+            },
+            securityLevel: 'loose',
+            fontFamily: 'Architects Daughter, Patrick Hand, cursive'
+        });
+
+        function printFlowchart() {
+            const element = document.querySelector('.mermaid svg');
+            if (!element) {
+                console.error('Mermaid SVG not found.');
+                return;
+            }
+
+            const svgData = element.outerHTML;
+            const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const svgUrl = URL.createObjectURL(svgBlob);
+            const img = new Image();
+
+            img.onload = function() {
+                URL.revokeObjectURL(svgUrl);
+
+                const svgWidth = img.width;
+                const svgHeight = img.height;
+
+                const a4Width = 595;
+                const a4Height = 842;
+
+                const orientation = (svgWidth > svgHeight) ? 'landscape' : 'portrait';
+
+                // Calculate scaling factor to fit within A4 without padding
+                let scale = Math.min(a4Width / svgWidth, a4Height / svgHeight);
+                scale = Math.min(scale, 1);
+
+                const scaledWidth = svgWidth * scale;
+                const scaledHeight = svgHeight * scale;
+
+                const xPos = (a4Width - scaledWidth) / 2;
+                const yPos = (a4Height - scaledHeight) / 2;
+
+                const pdf = new jspdf.jsPDF({
+                    orientation: orientation,
+                    unit: 'px',
+                    format: 'a4'
+                });
+
+                <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+                // Add a white background to the PDF
+                pdf.setFillColor('#fff');
+                pdf.rect(0, 0, a4Width, a4Height, 'F'); // Fill with white
+
+                pdf.addImage(img, 'SVG', xPos, yPos, scaledWidth, scaledHeight);
+                pdf.save('flowchart.pdf');
+            };
+
+            img.src = svgUrl;
+        }
+    </script>
+</body>
+</html>

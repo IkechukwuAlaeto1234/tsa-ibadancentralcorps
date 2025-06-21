@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Handwritten Mermaid</title>
+
+  <!-- 1) Import your hand-written font -->
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" 
+    rel="stylesheet"
+  />
+
+  <!-- 2) Optional page CSS -->
+  <style>
+    body {
+      background: #f1f1f1;
+      font-family: 'Patrick Hand', cursive;
+      padding: 20px;
+    }
+    .mermaid {
+      margin: 40px auto;
+      max-width: 600px;
+      background: #fff;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    /* After Mermaid has rendered, force every text element in the SVG to use Patrick Hand */
+.mermaid svg text {
+  font-family: 'Patrick Hand', cursive !important;
+}
+
+  </style>
+</head>
+<body>
+
+  <h2>Sign Determination</h2>
+  <div class="mermaid">
+    flowchart TD
+      A[Start] --> B{G &lt; 0 &amp;&amp; H &lt; 0?}
+      B -- Yes --> C[sign = -1] --> D[End]
+      B -- No --> E{Different signs?}
+      E -- Yes --> F[sign = 0] --> D
+      E -- No --> G[sign = 1] --> D
+  </div>
+
+  <h2>Swap I or Error</h2>
+  <div class="mermaid">
+    flowchart TD
+      A[Start] --> B{I == 1?}
+      B -- Yes --> C[I = 2] --> D[End]
+      B -- No --> E{I == 2?}
+      E -- Yes --> F[I = 1] --> D
+      E -- No --> G[Print "Error"] --> D
+  </div>
+
+  <!-- 3) Mermaid with custom themeVariables -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'base',
+      themeVariables: {
+        fontFamily: '"Patrick Hand", cursive',
+        fontSize: '16px',
+        fontWeight: 'normal',
+        // you can override more vars here if you like:
+        // primaryColor, edgeLabelBackground, etc.
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistical Calculation Flowchart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Kalam&family=Patrick+Hand&display=swap');
+        
+        body {
+            font-family: 'Architects Daughter', 'Patrick Hand', 'Kalam', cursive;
+            margin: 0;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-size: 20px 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-family: 'Kalam', 'Architects Daughter', cursive;
+            text-decoration: underline;
+        }
+        
+        .mermaid {
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Statistical Calculation Algorithm Flowchart</h1>
+        <div class="mermaid">
+        flowchart TD
+            A[Start] --> B[Initialize variables:
+            sum = 0
+            squared_sum = 0
+            count = 0]
+            
+            B --> C{More data
+            to process?}
+            
+            C -->|Yes| D[Read next value X]
+            D --> E[sum = sum + X]
+            E --> F[squared_sum = squared_sum + X²]
+            F --> G[count = count + 1]
+            G --> C
+            
+            C -->|No| H[Calculate mean:
+            mean = sum / count]
+            
+            H --> I[Calculate variance:
+            variance = squared_sum/count - mean²]
+            
+            I --> J[Calculate standard deviation:
+            std_dev = √variance]
+            
+            J --> K[Output results:
+            mean, variance, std_dev]
+            
+            K --> L[End]
+        </div>
+        <div class="footer">
+            Statistical calculation algorithm for computing mean, variance, and standard deviation
+        </div>
+    </div>
+
+     <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                curve: 'basis',
+                htmlLabels: true,
+                padding: 15
+            },
+            securityLevel: 'loose',
+            fontFamily: 'Architects Daughter, Patrick Hand, cursive'
+        });
+    </script>
+</body>
+</html>

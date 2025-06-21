@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flowchart 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Caveat', cursive; /* Apply the web font to the body (optional) */
+            margin: 40px;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .mermaid {
+            width: 80%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+        flowchart TD
+            A[Start] --> B[Initialize: sum = 0, \nsquared_sum = 0, \ncount = 0]
+            B --> C{Any more cards?}
+            C -->|Yes| D[Read next value X]
+            D --> E[sum = sum + X]
+            E --> F[squared_sum = squared_sum + X²]
+            F --> G[count = count + 1]
+            G --> C
+            C -->|No| H[Calculate mean = sum / count]
+            H --> I[Calculate variance = \nsquared_sum/count - mean²]
+            I --> J[Calculate std_dev = \nsquare root of variance]
+            J --> K[Output mean, \nvariance, std_dev]
+            K --> L[End]
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: false
+            },
+            fontFamily: 'Caveat, cursive' /* Specify the web font here */
+        });
+    </script>
+</body>
+</html>

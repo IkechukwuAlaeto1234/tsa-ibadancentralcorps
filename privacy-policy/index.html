@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Salvation Army Ibadan Central Corps - Serving the Ibadan community through faith, hope, and charity. Join us for worship, outreach programs, and community service.">
+    <meta name="keywords" content="Salvation Army, Ibadan church, Christian worship, community service, charity, outreach, social services, Ibadan Central Corps">
+    <meta name="author" content="The Salvation Army, Ibadan Central Corps">
+    <meta property="og:title" content="The Salvation Army | Ibadan Central Corps">
+    <meta property="og:description" content="Explore The Salvation Army in Ibadan - a church dedicated to worship, community service, and social outreach programs.">
+    <meta property="og:image" content="images/salvation-army-building.jpg">
+    <meta property="og:url" content="https://salvationarmyibadan.org">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>The Salvation Army | Ibadan Central Corps - Faith & Service in Ibadan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/tsa-ibcc-church-logo.jpeg">
+    
+    <style>
+        /* Back to Top Button Styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(145deg, #c8102e, #a00e26);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(200, 16, 46, 0.4);
+            background: linear-gradient(145deg, #a00e26, #c8102e);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+        }
+
+        .back-to-top svg {
+            width: 22px;
+            height: 22px;
+            stroke: white;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-top:hover svg {
+            transform: translateY(-2px);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            }
+            50% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.5), 0 0 0 8px rgba(200, 16, 46, 0.1);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
+            }
+        }
+
+        .back-to-top.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 48px;
+                height: 48px;
+            }
+            
+            .back-to-top svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="siteLoaderModal" class="site-loader-modal">
+    <div class="loader-content">
+        <div class="spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+        </div>
+        <p class="loader-text">Loading...</p>
+        <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+        </div>
+    </div>
+</div>
+
+    <!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/The-Salvation-Army-Logo-1865.png" alt="The Salvation Army Logo">
+                </a>
+                <div class="logo-text">
+                    <a href="index.html">
+                        The Salvation Army
+                        <span>Ibadan Central Corps</span>
+                    </a> 
+                </div>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ministries">Ministries</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#outreach">Outreach</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-nav-toggle" title="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30">
+                    <rect x="10" y="20" width="80" height="8" rx="4" fill="currentColor"/>
+                    <rect x="10" y="46" width="80" height="8" rx="4" fill="currentColor"/>
+                    <rect x="10" y="72" width="80" height="8" rx="4" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
