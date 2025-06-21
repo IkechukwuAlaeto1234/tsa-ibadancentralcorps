@@ -211,14 +211,15 @@ body {
     color: #444;
 }
 
-.policy-section a {
+/* Only apply link styles to regular text links, NOT download buttons */
+.policy-section a:not(.download-btn-flex) {
     color: #e74c3c;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.policy-section a:hover {
+.policy-section a:not(.download-btn-flex):hover {
     color: #c0392b;
     text-decoration: underline;
 }
@@ -364,6 +365,66 @@ body {
 .bottom-note em {
     color: #666;
     font-size: 1rem;
+}
+
+
+/*Download Button*/
+.download-btn-flex {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; /* Space between icon and text */
+    text-decoration: none;
+    font-family: 'Satoshi', Arial, sans-serif;
+    font-weight: 600;
+    color: white; /* White text in normal state */
+    background-color: #e74c3c;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid transparent; /* Add transparent border for consistency */
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.download-btn-flex:hover {
+    background-color: var(--white);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+    text-decoration: none;
+    color: #c0392b; /* Change text color to red on hover */
+    border: 2px solid #c0392b;
+}
+
+.download-btn-flex:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.download-btn-flex svg {
+    flex-shrink: 0; /* Prevents icon from shrinking */
+    width: 40px;
+    height: 40px;
+}
+
+/* Circle color - white in normal state, red on hover */
+.download-btn-flex .icon-circle {
+    fill: white;
+    transition: fill 0.3s ease;
+}
+
+.download-btn-flex:hover .icon-circle {
+    fill: #c0392b;
+}
+
+/* Icon paths - red in normal state, white on hover */
+.download-btn-flex .icon-paths {
+    fill: #c0392b;
+    transition: fill 0.3s ease;
+}
+
+.download-btn-flex:hover .icon-paths {
+    fill: white;
 }
 
 /* Footer */
@@ -1147,5 +1208,555 @@ input:focus {
     .contact-cta {
         background: #000 !important;
         border: 2px solid #fff;
+    }
+}
+
+
+/* Print Styles for Cookie Policy PDF */
+@media print {
+    /* Ensure fonts load for print */
+    @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
+    @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+    
+    /* Reset and base print styles */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    /* Page setup - more content-friendly margins */
+    @page {
+        size: A4;
+        margin: 1.5cm 1cm;
+        @top-center {
+            content: "Cookie Policy - The Salvation Army Ibadan Central Corps";
+            font-family: 'Clash Display', Arial, sans-serif;
+            font-size: 9pt;
+            color: #666;
+            border-bottom: 0.5pt solid #ddd;
+            padding-bottom: 3pt;
+            margin-top: 15pt !important;
+        }
+        @bottom-center {
+            content: "Page " counter(page);
+            font-family: 'Satoshi', Arial, sans-serif;
+            font-size: 8pt;
+            color: #666;
+            margin-top: 15pt !important;
+        }
+    }
+    
+    /* Hide elements not needed in print */
+    .header,
+    .navbar,
+    .mobile-nav-toggle,
+    .nav-menu,
+    .contact-cta,
+    .download-section,
+    button,
+    input[type="submit"] {
+        display: none !important;
+    }
+    
+    /* Body and container adjustments */
+    body {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        font-size: 10pt;
+        line-height: 1.3;
+        color: #000 !important;
+        background: white !important;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .container {
+        max-width: none !important;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    /* Hero section adjustments */
+    .policy-hero {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+        color: white !important;
+        padding: 20pt 15pt 15pt;
+        margin: 0;
+        page-break-inside: avoid;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .policy-hero-content {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .policy-hero-content h1 {
+        font-family: 'Clash Display', Arial, sans-serif !important;
+        font-size: 20pt;
+        font-weight: 700;
+        margin-bottom: 8pt;
+        text-align: center;
+        color: white !important;
+        line-height: 1.2;
+    }
+    
+    .policy-hero-content p {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        font-size: 11pt;
+        text-align: center;
+        color: white !important;
+        margin: 0 auto;
+        line-height: 1.3;
+        max-width: 90%;
+    }
+    
+    /* Main content */
+    .policy-main-content {
+        padding: 15pt 0 0;
+        background: white !important;
+        width: 100%;
+    }
+    
+    /* Last updated box */
+.last-updated {
+    background: #f5f5f5 !important;
+    border: 1pt solid #ddd !important;
+    border-left: 3pt solid #e74c3c !important;
+    padding: 8pt 10pt;
+    margin-bottom: 0pt; /* Changed from 12pt to 0pt */
+    page-break-inside: avoid;
+    border-radius: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.last-updated p {
+    font-family: 'Satoshi', Arial, sans-serif !important;
+    margin: 0;
+    font-size: 9pt;
+    color: #333 !important;
+}
+.last-updated {
+    margin-bottom: 0pt !important;
+}
+
+.last-updated p {
+    margin-bottom: 0 !important;
+}
+
+.policy-section:first-of-type {
+    margin-top: 15pt !important;
+}
+/* Section styling */
+.policy-section {
+    margin-bottom: 15pt;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    break-inside: auto;
+    orphans: 2;
+    widows: 2;
+}
+
+/* First policy section should have no top margin to follow immediately after last-updated */
+.policy-section:first-of-type {
+    margin-top: 15pt;
+}
+
+.policy-section h2 {
+    font-family: 'Clash Display', Arial, sans-serif !important;
+    font-size: 14pt;
+    font-weight: 600;
+    color: #2c3e50 !important;
+    margin: 15pt 0 8pt 0;
+    padding-bottom: 2pt;
+    border-bottom: 1.5pt solid #e74c3c !important;
+    page-break-after: avoid;
+    line-height: 1.2;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Override for the first policy section's h2 to have no top margin */
+.policy-section:first-of-type h2 {
+    margin-top: 0pt;
+}
+    
+    .policy-section h3 {
+        font-family: 'Clash Display', Arial, sans-serif !important;
+        font-size: 12pt;
+        font-weight: 600;
+        color: #34495e !important;
+        margin: 12pt 0 6pt 0;
+        page-break-after: avoid;
+        line-height: 1.2;
+    }
+    
+    .policy-section p {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        font-size: 10pt;
+        line-height: 1.3;
+        margin-bottom: 6pt;
+        color: #000 !important;
+        text-align: justify;
+        orphans: 2;
+        widows: 2;
+        hyphens: auto;
+        word-wrap: break-word;
+    }
+    
+    .policy-section ul {
+        margin: 8pt 0;
+        padding-left: 12pt;
+        break-inside: auto;
+    }
+    
+    .policy-section li {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        font-size: 10pt;
+        line-height: 1.3;
+        margin-bottom: 4pt;
+        color: #000 !important;
+        orphans: 2;
+        widows: 2;
+        word-wrap: break-word;
+    }
+    
+    /* Links */
+    .policy-section a {
+        color: #0066cc !important;
+        text-decoration: underline;
+        font-weight: normal;
+        word-wrap: break-word;
+    }
+    
+    /* Show URLs after links for reference */
+    .policy-section a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #666 !important;
+        font-weight: normal;
+    }
+    
+    /* Highlight box */
+    .highlight-box {
+        background: #fff9c4 !important;
+        border: 1pt solid #f1c40f !important;
+        padding: 8pt;
+        margin: 8pt 0;
+        page-break-inside: avoid;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .highlight-box p {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        margin: 0;
+        font-weight: 500;
+        color: #7d6608 !important;
+        font-size: 10pt;
+        line-height: 1.3;
+    }
+    
+    /* Cookie table - improved responsive handling with balanced page breaks */
+.cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10pt 0;
+    font-size: 9pt;
+    page-break-inside: auto;
+    table-layout: fixed; /* Changed from auto to fixed for better control */
+    orphans: 3; /* Minimum rows at bottom of page */
+    widows: 3; /* Minimum rows at top of page */
+    border-radius: 6pt; /* Add corner rounding */
+    overflow: hidden; /* Ensure corners are properly rounded */
+    border: 0.5pt solid #333 !important; /* Add outer border */
+}
+
+.cookie-table th,
+.cookie-table td {
+    border: 0.5pt solid #333 !important;
+    padding: 4pt 6pt;
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+}
+
+/* Table header styling */
+.cookie-table thead {
+    display: table-header-group; /* Ensures header repeats on new pages */
+}
+
+.cookie-table th {
+    background: #2c3e50 !important;
+    color: white !important;
+    font-family: 'Clash Display', Arial, sans-serif !important;
+    font-weight: 600;
+    font-size: 9pt;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+.cookie-table td {
+    font-family: 'Satoshi', Arial, sans-serif !important;
+    color: #000 !important;
+    background: white !important;
+    font-size: 9pt;
+    line-height: 1.2;
+}
+
+/* Table body and row handling */
+.cookie-table tbody {
+    display: table-row-group;
+}
+
+.cookie-table tbody tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    orphans: 2;
+    widows: 2;
+}
+
+/* Prevent awkward single row breaks */
+.cookie-table tbody tr:nth-last-child(-n+2) {
+    page-break-before: avoid;
+    break-before: avoid;
+}
+
+/* Ensure first few rows stay together with header when possible */
+.cookie-table tbody tr:nth-child(-n+2) {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Table column widths for better content fit */
+.cookie-table th:nth-child(1),
+.cookie-table td:nth-child(1) {
+    width: 20%;
+}
+
+.cookie-table th:nth-child(2),
+.cookie-table td:nth-child(2) {
+    width: 40%;
+}
+
+.cookie-table th:nth-child(3),
+.cookie-table td:nth-child(3) {
+    width: 20%;
+}
+
+.cookie-table th:nth-child(4),
+.cookie-table td:nth-child(4) {
+    width: 20%;
+}
+
+/* Alternative approach for better page break control */
+@media print {
+    .cookie-table {
+        /* Force table to be treated as a block for better page break control */
+        display: table;
+        table-layout: fixed;
+        
+        /* Minimum space requirements */
+        orphans: 3;
+        widows: 3;
+    }
+    
+    /* If table must break, ensure meaningful content on both sides */
+    .cookie-table-wrapper {
+        page-break-inside: auto;
+        orphans: 4; /* At least 4 lines before break */
+        widows: 4;  /* At least 4 lines after break */
+    }
+    
+    /* Keep header with at least 2 data rows when starting a new page */
+    .cookie-table thead th {
+        page-break-after: avoid;
+    }
+    
+    .cookie-table tbody tr:first-child,
+    .cookie-table tbody tr:nth-child(2) {
+        page-break-before: avoid;
+    }
+    
+    /* Avoid leaving just one row at the end of a page */
+    .cookie-table tbody tr:last-child {
+        orphans: 2;
+    }
+    
+    /* Better handling of long content in cells */
+    .cookie-table td {
+        max-width: 0; /* Forces table-layout: fixed to work properly */
+        overflow: visible;
+        white-space: normal;
+        word-break: break-word;
+        hyphens: auto;
+    }
+}
+    
+    /* Contact details box */
+    .contact-details-box {
+        background: #f8f8f8 !important;
+        border: 1pt solid #ddd !important;
+        padding: 10pt;
+        margin: 10pt 0;
+        page-break-inside: avoid;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .contact-details-box h3 {
+        font-family: 'Clash Display', Arial, sans-serif !important;
+        color: #2c3e50 !important;
+        margin-bottom: 8pt;
+        font-size: 12pt;
+        font-weight: 600;
+    }
+    
+    .contact-details-box p {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        margin-bottom: 4pt;
+        font-size: 9pt;
+        color: #000 !important;
+        line-height: 1.3;
+    }
+    
+    .contact-details-box a {
+        color: #0066cc !important;
+        text-decoration: underline;
+        word-wrap: break-word;
+    }
+    
+    /* Bottom note */
+    .bottom-note {
+        background: #f8f8f8 !important;
+        border: 1pt solid #ddd !important;
+        padding: 8pt;
+        margin-top: 15pt;
+        text-align: center;
+        page-break-inside: avoid;
+        border-radius: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .bottom-note em {
+        font-family: 'Satoshi', Arial, sans-serif !important;
+        color: #666 !important;
+        font-style: italic;
+        font-size: 9pt;
+        line-height: 1.3;
+    }
+    
+    /* Ensure proper spacing and content flow */
+    .policy-section:first-child {
+        margin-top: 0;
+    }
+    
+    .policy-section:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* Better page break management */
+    h2 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+    
+    h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+    
+    /* Avoid breaks in important content */
+    .highlight-box,
+    .contact-details-box,
+    .last-updated {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    /* Remove any shadows or effects */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* Ensure all content is visible */
+    .policy-main-content,
+    .policy-section,
+    .container {
+        overflow: visible !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+    
+    /* Typography improvements for print */
+    strong {
+        font-weight: 700;
+        color: #000 !important;
+    }
+    
+    em {
+        font-style: italic;
+        color: #000 !important;
+    }
+    
+    /* Specific color overrides to maintain readability */
+    h1, h2, h3, h4, h5, h6, p, li, span, div {
+        color: #000 !important;
+    }
+    
+    /* Exceptions for styled sections */
+    .policy-hero * {
+        color: white !important;
+    }
+    
+    .cookie-table th {
+        color: white !important;
+    }
+    
+    .highlight-box p {
+        color: #7d6608 !important;
+    }
+    
+    .last-updated p,
+    .contact-details-box p,
+    .bottom-note em {
+        color: #333 !important;
+    }
+    
+    /* Responsive font scaling for smaller content */
+    @page :first {
+        margin-top: 1cm;
+    }
+    
+    /* Handle long content better */
+    .policy-section p,
+    .policy-section li {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    /* Ensure table content doesn't overflow */
+    .cookie-table {
+        max-width: 100%;
+        overflow: visible;
+    }
+    
+    .cookie-table td,
+    .cookie-table th {
+        max-width: 0;
+        overflow: visible;
+        white-space: normal;
     }
 }
